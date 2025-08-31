@@ -1,0 +1,1 @@
+document.getElementById('catalog').innerHTML='<p>(qui elenco materiale)</p>';

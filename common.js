@@ -1,0 +1,1 @@
+const LC={load:()=>({catalog:[],placed:[]}),save:s=>localStorage.setItem('lc',JSON.stringify(s))};

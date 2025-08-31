@@ -1,0 +1,1 @@
+document.getElementById('save').onclick=()=>alert('Salvato (demo)');

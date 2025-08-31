@@ -1,0 +1,26 @@
+<!doctype html><html lang="it"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Aggiungi</title></head><body style="background:#0b1220;color:#E5E7EB;font-family:sans-serif">
+
+<header style="background:#111827;color:#E5E7EB;padding:1em;display:flex;gap:1em;flex-wrap:wrap">
+  <strong>Load Composer</strong>
+  <nav style="display:flex;gap:0.5em">
+    <a href="index.html" style="color:#0EA5E9">Home</a>
+    <a href="materials.html" style="color:#0EA5E9">Materiale</a>
+    <a href="add.html" style="color:#0EA5E9">Aggiungi</a>
+    <a href="planner.html" style="color:#0EA5E9">Piano 2D</a>
+    <a href="stats.html" style="color:#0EA5E9">Statistiche</a>
+  </nav>
+</header>
+
+<h2>Aggiungi nuovo materiale</h2>
+<label>Nome <input id="name"></label><br>
+<label>Lunghezza <input id="L" type="number"></label><br>
+<label>Larghezza <input id="W" type="number"></label><br>
+<label>Altezza <input id="H" type="number"></label><br>
+<label>Peso (kg) <input id="KG" type="number"></label><br>
+<label>Colore <input id="color" type="color" value="#22D3EE"></label><br>
+<button id="save">Salva</button>
+<div id="preview"></div>
+<script src="common.js"></script><script src="add.js"></script>
+</body></html>

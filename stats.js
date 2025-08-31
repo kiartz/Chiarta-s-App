@@ -1,0 +1,1 @@
+document.getElementById('stats').innerText='Statistiche demo';
