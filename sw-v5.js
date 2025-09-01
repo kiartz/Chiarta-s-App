@@ -1,6 +1,13 @@
-self.addEventListener('install',e=>{
-  e.waitUntil(caches.open('lc-v5-3donly').then(c=>c.addAll([
-    './index.html','./styles.css','./app3d.js','./manifest.webmanifest','./icon-192.png','./icon-512.png'
-  ])));
-});self.addEventListener('activate',e=>e.waitUntil(self.clients.claim()));
-self.addEventListener('fetch',e=>e.respondWith(caches.match(e.request).then(r=>r||fetch(e.request))));
+// sw-v6: pulizia cache e auto-unregister
+self.addEventListener('install', e => self.skipWaiting());
+self.addEventListener('activate', e => {
+  e.waitUntil((async () => {
+    const keys = await caches.keys();
+    await Promise.all(keys.map(k => caches.delete(k)));
+    // unregister e ricarica tutti i client per prendere la versione nuova
+    await self.registration.unregister();
+    const clientsList = await self.clients.matchAll({ includeUncontrolled: true });
+    clientsList.forEach(c => c.navigate(c.url));
+  })());
+});
+self.addEventListener('fetch', e => e.respondWith(fetch(e.request)));
