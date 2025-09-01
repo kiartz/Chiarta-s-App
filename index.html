@@ -1,25 +1,78 @@
 <!doctype html><html lang="it"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Load Composer – Home</title><link rel="manifest" href="manifest.webmanifest"><link rel="icon" href="icon-192.png"><link rel="stylesheet" href="styles.css"></head>
-<body>
-  <header class="header">
-    <img src="icon-192.png" alt="" width="24" height="24" style="border-radius:8px">
-    <h1>Load Composer</h1>
-    <span class="spacer"></span>
-    <nav class="nav">
-      <a class="btn ghost" href="index.html" onclick="location.href='index.html';return false">Home</a>
-      <a class="btn ghost" href="materials.html" onclick="location.href='materials.html';return false">Materiale</a>
-      <a class="btn ghost" href="planner.html" onclick="location.href='planner.html';return false">Piano 2D</a>
-      <a class="btn ghost" href="cargo3d.html" onclick="location.href='cargo3d.html';return false">Carico 3D</a>
-      <a class="btn ghost" href="stats.html" onclick="location.href='stats.html';return false">Statistiche</a>
-    </nav>
-  </header>
-<main><section class="card"><h2>Benvenuto 👋</h2>
-<p>Usa <strong>Materiale</strong> per costruire il catalogo, poi posiziona in <strong>Piano 2D</strong> o <strong>Carico 3D</strong> con snap e collisioni.</p>
-<div class="navtabs"><a href="materials.html" onclick="location.href='materials.html';return false">📦 Materiale</a>
-<a href="planner.html" onclick="location.href='planner.html';return false">📐 Piano 2D</a>
-<a href="cargo3d.html" onclick="location.href='cargo3d.html';return false">🧊 Carico 3D</a>
-<a href="stats.html" onclick="location.href='stats.html';return false">📊 Statistiche</a></div></section></main>
-<footer>PWA-ready • HTTPS/localhost per installare</footer>
-<script>if('serviceWorker' in navigator){addEventListener('load',()=>{if(location.protocol==='https:'||location.hostname==='localhost')navigator.serviceWorker.register('sw.js');})};</script>
+<title>Load Composer – 3D</title>
+<link rel="manifest" href="manifest.webmanifest"><link rel="icon" href="icon-192.png"><link rel="stylesheet" href="styles.css">
+</head><body>
+<header class="header">
+  <img src="icon-192.png" width="24" height="24" style="border-radius:8px" alt="">
+  <h1>Load Composer 3D</h1>
+  <span class="spacer"></span>
+  <button class="btn" id="install">Installa</button>
+</header>
+<main>
+  <section class="layout">
+    <div class="card">
+      <div class="row" style="gap:8px;margin-bottom:10px">
+        <button class="btn" id="rotate">Ruota 90°</button>
+        <button class="btn" id="levelUp">Livello ↑</button>
+        <button class="btn" id="levelDown">Livello ↓</button>
+        <button class="btn ghost" id="delete">Elimina</button>
+        <button class="btn ghost" id="clear">Svuota scena</button>
+      </div>
+      <p class="small">Tocca un box per selezionarlo. Trascina per muovere (snap a griglia), pizzica per zoom. Collisioni AABB e stacking per livelli.</p>
+      <canvas id="scene"></canvas>
+    </div>
+    <aside class="sidebar">
+      <div class="group">
+        <div class="row">
+          <div style="flex:1">
+            <label class="label">Preset vano</label>
+            <select id="preset">
+              <option value="">Custom</option>
+              <option value="l3h2">Furgone L3H2 (330×175×250)</option>
+              <option value="semi">Semirimorchio 13.6 (1360×245×270)</option>
+              <option value="c20">Container 20' (589×235×239)</option>
+              <option value="c40">Container 40' (1203×235×239)</option>
+            </select>
+          </div>
+          <div style="width:110px">
+            <label class="label">Griglia (cm)</label>
+            <select id="grid"><option>5</option><option selected>10</option><option>20</option></select>
+          </div>
+        </div>
+        <div class="row" style="margin-top:8px">
+          <div><label class="label">L (cm)</label><input id="len" type="number" value="330"></div>
+          <div><label class="label">W (cm)</label><input id="wid" type="number" value="175"></div>
+          <div><label class="label">H (cm)</label><input id="hei" type="number" value="250"></div>
+          <div style="align-self:end"><button class="btn" id="apply">Applica</button></div>
+        </div>
+      </div>
+      <div class="group">
+        <h3 style="margin:0 0 6px 0">Catalogo</h3>
+        <div class="list" id="catalog"></div>
+        <div class="row" style="margin-top:8px">
+          <button class="btn primary" id="addBox">+ Aggiungi selezionato</button>
+        </div>
+      </div>
+      <div class="group">
+        <h3 style="margin:0 0 6px 0">Nuovo materiale</h3>
+        <div class="row">
+          <input id="name" placeholder="Nome" style="flex:1">
+          <input id="color" type="color" value="#22D3EE" style="width:70px">
+        </div>
+        <div class="row">
+          <input id="mL" type="number" value="60"><input id="mW" type="number" value="40"><input id="mH" type="number" value="50">
+        </div>
+        <div class="row"><button class="btn" id="saveMat">Salva nel catalogo</button></div>
+      </div>
+    </aside>
+  </section>
+</main>
+<script>
+let deferredPrompt=null;
+if('serviceWorker' in navigator){ addEventListener('load',()=>{ if(location.protocol==='https:'||location.hostname==='localhost'){ navigator.serviceWorker.register('sw-v5.js'); } }); }
+window.addEventListener('beforeinstallprompt',e=>{ e.preventDefault(); deferredPrompt=e; });
+document.getElementById('install').onclick=async()=>{ if(deferredPrompt){ deferredPrompt.prompt(); deferredPrompt=null; } };
+</script>
+<script src="app3d.js"></script>
 </body></html>
