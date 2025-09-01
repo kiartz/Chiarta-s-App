@@ -70,9 +70,17 @@
 </main>
 <script>
 let deferredPrompt=null;
-if('serviceWorker' in navigator){ addEventListener('load',()=>{ if(location.protocol==='https:'||location.hostname==='localhost'){ navigator.serviceWorker.register('sw-v5.js'); } }); }
-window.addEventListener('beforeinstallprompt',e=>{ e.preventDefault(); deferredPrompt=e; });
-document.getElementById('install').onclick=async()=>{ if(deferredPrompt){ deferredPrompt.prompt(); deferredPrompt=null; } };
+// REGISTRA UN SW CON NOME NUOVO (v6) PER EVITARE IL VECCHIO CACHE
+if('serviceWorker' in navigator){
+  addEventListener('load', ()=>{
+    if(location.protocol==='https:'||location.hostname==='localhost'){
+      navigator.serviceWorker.register('sw-v6.js?v=1');
+    }
+  });
+}
+window.addEventListener('beforeinstallprompt', e => { e.preventDefault(); deferredPrompt = e; });
+document.getElementById('install').onclick = async () => { if(deferredPrompt){ deferredPrompt.prompt(); deferredPrompt=null; } };
 </script>
-<script src="app3d.js"></script>
+<!-- IMPORTANTISSIMO: aggiungi un querystring anche al JS per bustare cache -->
+<script src="app3d.js?v=51" defer></script>
 </body></html>
