@@ -1,59 +1,25 @@
-
-<!doctype html>
-<html lang="it">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>Load Composer – Home</title>
-  <link rel="manifest" href="manifest.webmanifest">
-  <meta name="theme-color" content="#0EA5E9">
-  <link rel="icon" href="icon-192.png">
-  <link rel="stylesheet" href="styles.css">
-</head>
+<!doctype html><html lang="it"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Load Composer – Home</title><link rel="manifest" href="manifest.webmanifest"><link rel="icon" href="icon-192.png"><link rel="stylesheet" href="styles.css"></head>
 <body>
-  
   <header class="header">
     <img src="icon-192.png" alt="" width="24" height="24" style="border-radius:8px">
     <h1>Load Composer</h1>
     <span class="spacer"></span>
     <nav class="nav">
-      <a class="btn ghost" href="index.html">Home</a>
-      <a class="btn ghost" href="materials.html">Materiale</a>
-      <a class="btn ghost" href="add.html">Aggiungi</a>
-      <a class="btn ghost" href="planner.html">Piano 2D</a>
-      <a class="btn ghost" href="stats.html">Statistiche</a>
+      <a class="btn ghost" href="index.html" onclick="location.href='index.html';return false">Home</a>
+      <a class="btn ghost" href="materials.html" onclick="location.href='materials.html';return false">Materiale</a>
+      <a class="btn ghost" href="planner.html" onclick="location.href='planner.html';return false">Piano 2D</a>
+      <a class="btn ghost" href="cargo3d.html" onclick="location.href='cargo3d.html';return false">Carico 3D</a>
+      <a class="btn ghost" href="stats.html" onclick="location.href='stats.html';return false">Statistiche</a>
     </nav>
   </header>
-
-  <main>
-    <section class="card">
-      <h2>Benvenuto 👋</h2>
-      <p>Planner del carico semplice, ottimizzato per iPhone/Android, con tema scuro riposante e navigazione a pagine.</p>
-      <div class="navtabs">
-        <a href="materials.html">📦 Gestisci materiale</a>
-        <a href="add.html">➕ Aggiungi materiale</a>
-        <a href="planner.html">📐 Apri piano 2D</a>
-        <a href="stats.html">📊 Vedi statistiche</a>
-      </div>
-    </section>
-    <section class="card">
-      <h3>Consigli rapidi</h3>
-      <ul class="small">
-        <li>Aggiungi i tuoi pezzi in <strong>Aggiungi</strong> con l'anteprima grafica.</li>
-        <li>Posizionali con <strong>drag&drop</strong> nel <strong>Piano 2D</strong>, doppio tap per ruotare.</li>
-        <li>Esporta PNG dal Piano e JSON dalle Statistiche.</li>
-      </ul>
-    </section>
-  </main>
-  <footer>v2 prototipo multi-pagina • installabile come PWA</footer>
-  <script>
-    if ('serviceWorker' in navigator) { 
-      addEventListener('load', () => {{
-        if (location.protocol === 'https:' || location.hostname === 'localhost') {{
-          navigator.serviceWorker.register('sw.js');
-        }}
-      }});
-    }
-  </script>
-</body>
-</html>
+<main><section class="card"><h2>Benvenuto 👋</h2>
+<p>Usa <strong>Materiale</strong> per costruire il catalogo, poi posiziona in <strong>Piano 2D</strong> o <strong>Carico 3D</strong> con snap e collisioni.</p>
+<div class="navtabs"><a href="materials.html" onclick="location.href='materials.html';return false">📦 Materiale</a>
+<a href="planner.html" onclick="location.href='planner.html';return false">📐 Piano 2D</a>
+<a href="cargo3d.html" onclick="location.href='cargo3d.html';return false">🧊 Carico 3D</a>
+<a href="stats.html" onclick="location.href='stats.html';return false">📊 Statistiche</a></div></section></main>
+<footer>PWA-ready • HTTPS/localhost per installare</footer>
+<script>if('serviceWorker' in navigator){addEventListener('load',()=>{if(location.protocol==='https:'||location.hostname==='localhost')navigator.serviceWorker.register('sw.js');})};</script>
+</body></html>

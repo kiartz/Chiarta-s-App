@@ -1,20 +1,33 @@
 <!doctype html><html lang="it"><head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Piano 2D</title></head><body style="background:#0b1220;color:#E5E7EB;font-family:sans-serif">
-
-<header style="background:#111827;color:#E5E7EB;padding:1em;display:flex;gap:1em;flex-wrap:wrap">
-  <strong>Load Composer</strong>
-  <nav style="display:flex;gap:0.5em">
-    <a href="index.html" style="color:#0EA5E9">Home</a>
-    <a href="materials.html" style="color:#0EA5E9">Materiale</a>
-    <a href="add.html" style="color:#0EA5E9">Aggiungi</a>
-    <a href="planner.html" style="color:#0EA5E9">Piano 2D</a>
-    <a href="stats.html" style="color:#0EA5E9">Statistiche</a>
-  </nav>
-</header>
-
-<h2>Piano 2D</h2>
-<div id="board" style="position:relative;width:100%;height:70vh;background:#111827"></div>
-<button id="exportPng">Export PNG</button>
-<script src="common.js"></script><script src="planner.js"></script>
-</body></html>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Piano 2D</title><link rel="manifest" href="manifest.webmanifest"><link rel="icon" href="icon-192.png"><link rel="stylesheet" href="styles.css"></head>
+<body>
+  <header class="header">
+    <img src="icon-192.png" alt="" width="24" height="24" style="border-radius:8px">
+    <h1>Load Composer</h1>
+    <span class="spacer"></span>
+    <nav class="nav">
+      <a class="btn ghost" href="index.html" onclick="location.href='index.html';return false">Home</a>
+      <a class="btn ghost" href="materials.html" onclick="location.href='materials.html';return false">Materiale</a>
+      <a class="btn ghost" href="planner.html" onclick="location.href='planner.html';return false">Piano 2D</a>
+      <a class="btn ghost" href="cargo3d.html" onclick="location.href='cargo3d.html';return false">Carico 3D</a>
+      <a class="btn ghost" href="stats.html" onclick="location.href='stats.html';return false">Statistiche</a>
+    </nav>
+  </header>
+<main>
+<section class="card"><h2>Piano 2D e settaggi</h2>
+<div class="row"><div style="flex:1"><label>Preset</label><select id="preset">
+<option value="">—</option><option value="furgone">Furgone L3H2 (330×175)</option><option value="cassonato">Cassonato 7.5t (500×240)</option>
+<option value="semi">Semirimorchio 13.6 (1360×245)</option><option value="c20">Container 20' (589×235)</option><option value="c40">Container 40' (1203×235)</option></select></div>
+<div style="width:120px"><label>Unità</label><select id="unit"><option value="cm">cm</option><option value="in">in</option></select></div>
+<div style="width:120px"><label>Griglia (cm)</label><select id="grid"><option>5</option><option selected>10</option><option>20</option></select></div></div>
+<div class="row"><div style="flex:1"><label>Lunghezza interna</label><input id="len" type="number" value="330"></div>
+<div style="flex:1"><label>Larghezza interna</label><input id="wid" type="number" value="175"></div></div>
+<div class="toolbar" style="margin-top:10px"><button class="btn" id="apply">Applica</button>
+<button class="btn" id="addFromCatalog">+ Dal catalogo</button>
+<button class="btn ghost" id="clear">Svuota piano</button><button class="btn" id="autopack">Auto-pack</button><button class="btn" id="exportPng">Esporta PNG</button></div>
+</section><section class="card grid" style="margin-top:14px"><div id="meta" class="small">—</div><div id="board"></div></section>
+</main><footer>Drag per muovere, doppio tap per ruotare. “+ Dal catalogo” per aggiungere pezzi.</footer>
+<div class="overlay" id="overlay"><div class="sheet"><h3>Catalogo</h3><div id="catalogList" class="list"></div>
+<div class="toolbar" style="margin-top:10px"><button class="btn" id="closeOverlay">Chiudi</button></div></div></div>
+<script src="common.js"></script><script src="planner.js"></script></body></html>

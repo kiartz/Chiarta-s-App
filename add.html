@@ -1,26 +1,28 @@
 <!doctype html><html lang="it"><head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Aggiungi</title></head><body style="background:#0b1220;color:#E5E7EB;font-family:sans-serif">
-
-<header style="background:#111827;color:#E5E7EB;padding:1em;display:flex;gap:1em;flex-wrap:wrap">
-  <strong>Load Composer</strong>
-  <nav style="display:flex;gap:0.5em">
-    <a href="index.html" style="color:#0EA5E9">Home</a>
-    <a href="materials.html" style="color:#0EA5E9">Materiale</a>
-    <a href="add.html" style="color:#0EA5E9">Aggiungi</a>
-    <a href="planner.html" style="color:#0EA5E9">Piano 2D</a>
-    <a href="stats.html" style="color:#0EA5E9">Statistiche</a>
-  </nav>
-</header>
-
-<h2>Aggiungi nuovo materiale</h2>
-<label>Nome <input id="name"></label><br>
-<label>Lunghezza <input id="L" type="number"></label><br>
-<label>Larghezza <input id="W" type="number"></label><br>
-<label>Altezza <input id="H" type="number"></label><br>
-<label>Peso (kg) <input id="KG" type="number"></label><br>
-<label>Colore <input id="color" type="color" value="#22D3EE"></label><br>
-<button id="save">Salva</button>
-<div id="preview"></div>
-<script src="common.js"></script><script src="add.js"></script>
-</body></html>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Aggiungi materiale</title><link rel="manifest" href="manifest.webmanifest"><link rel="icon" href="icon-192.png"><link rel="stylesheet" href="styles.css"></head>
+<body>
+  <header class="header">
+    <img src="icon-192.png" alt="" width="24" height="24" style="border-radius:8px">
+    <h1>Load Composer</h1>
+    <span class="spacer"></span>
+    <nav class="nav">
+      <a class="btn ghost" href="index.html" onclick="location.href='index.html';return false">Home</a>
+      <a class="btn ghost" href="materials.html" onclick="location.href='materials.html';return false">Materiale</a>
+      <a class="btn ghost" href="planner.html" onclick="location.href='planner.html';return false">Piano 2D</a>
+      <a class="btn ghost" href="cargo3d.html" onclick="location.href='cargo3d.html';return false">Carico 3D</a>
+      <a class="btn ghost" href="stats.html" onclick="location.href='stats.html';return false">Statistiche</a>
+    </nav>
+  </header>
+<main><section class="card"><h2>Nuovo materiale</h2>
+<div class="row"><div style="flex:1"><label>Nome</label><input id="name" placeholder="Es. Flycase 60x40"></div>
+<div style="width:120px"><label>Colore</label><input id="color" type="color" value="#22D3EE"></div></div>
+<div class="row"><div style="flex:1"><label>Lunghezza (cm)</label><input id="L" type="number" value="60" min="1"></div>
+<div style="flex:1"><label>Larghezza (cm)</label><input id="W" type="number" value="40" min="1"></div>
+<div style="flex:1"><label>Altezza (cm)</label><input id="H" type="number" value="50" min="0"></div>
+<div style="flex:1"><label>Peso (kg)</label><input id="KG" type="number" value="30" min="0" step="0.1"></div></div>
+<h3>Anteprima</h3><div class="preview" id="preview"></div>
+<div class="toolbar" style="margin-top:12px"><button class="btn primary" id="save">Salva nel catalogo</button>
+<a class="btn ghost" href="materials.html" onclick="location.href='materials.html';return false">Indietro</a></div>
+</section></main><footer>Anteprima top-view semplificata.</footer>
+<script src="common.js"></script><script src="add.js"></script></body></html>

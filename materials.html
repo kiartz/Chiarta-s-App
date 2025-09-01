@@ -1,19 +1,22 @@
 <!doctype html><html lang="it"><head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Materiale</title></head><body style="background:#0b1220;color:#E5E7EB;font-family:sans-serif">
-
-<header style="background:#111827;color:#E5E7EB;padding:1em;display:flex;gap:1em;flex-wrap:wrap">
-  <strong>Load Composer</strong>
-  <nav style="display:flex;gap:0.5em">
-    <a href="index.html" style="color:#0EA5E9">Home</a>
-    <a href="materials.html" style="color:#0EA5E9">Materiale</a>
-    <a href="add.html" style="color:#0EA5E9">Aggiungi</a>
-    <a href="planner.html" style="color:#0EA5E9">Piano 2D</a>
-    <a href="stats.html" style="color:#0EA5E9">Statistiche</a>
-  </nav>
-</header>
-
-<h2>Elenco materiale</h2>
-<div id="catalog"></div>
-<script src="common.js"></script><script src="materials.js"></script>
-</body></html>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Materiale</title><link rel="manifest" href="manifest.webmanifest"><link rel="icon" href="icon-192.png"><link rel="stylesheet" href="styles.css">
+</head><body>
+  <header class="header">
+    <img src="icon-192.png" alt="" width="24" height="24" style="border-radius:8px">
+    <h1>Load Composer</h1>
+    <span class="spacer"></span>
+    <nav class="nav">
+      <a class="btn ghost" href="index.html" onclick="location.href='index.html';return false">Home</a>
+      <a class="btn ghost" href="materials.html" onclick="location.href='materials.html';return false">Materiale</a>
+      <a class="btn ghost" href="planner.html" onclick="location.href='planner.html';return false">Piano 2D</a>
+      <a class="btn ghost" href="cargo3d.html" onclick="location.href='cargo3d.html';return false">Carico 3D</a>
+      <a class="btn ghost" href="stats.html" onclick="location.href='stats.html';return false">Statistiche</a>
+    </nav>
+  </header>
+<main><section class="card">
+<div class="row" style="justify-content:space-between;align-items:center"><h2>Elenco materiale</h2>
+<a class="btn primary" href="add.html" onclick="location.href='add.html';return false">+ Aggiungi materiale</a></div>
+<p class="small">Catalogo salvato in locale (LocalStorage).</p>
+<div id="catalog" class="list"></div></section></main><footer>“+ al Piano” invia al 2D; in 3D aggiungi dalla pagina dedicata.</footer>
+<script src="common.js"></script><script src="materials.js"></script></body></html>

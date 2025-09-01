@@ -1,0 +1,30 @@
+<!doctype html><html lang="it"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Carico 3D</title><link rel="manifest" href="manifest.webmanifest"><link rel="icon" href="icon-192.png"><link rel="stylesheet" href="styles.css"></head>
+<body>
+  <header class="header">
+    <img src="icon-192.png" alt="" width="24" height="24" style="border-radius:8px">
+    <h1>Load Composer</h1>
+    <span class="spacer"></span>
+    <nav class="nav">
+      <a class="btn ghost" href="index.html" onclick="location.href='index.html';return false">Home</a>
+      <a class="btn ghost" href="materials.html" onclick="location.href='materials.html';return false">Materiale</a>
+      <a class="btn ghost" href="planner.html" onclick="location.href='planner.html';return false">Piano 2D</a>
+      <a class="btn ghost" href="cargo3d.html" onclick="location.href='cargo3d.html';return false">Carico 3D</a>
+      <a class="btn ghost" href="stats.html" onclick="location.href='stats.html';return false">Statistiche</a>
+    </nav>
+  </header>
+<main><section class="card"><h2>Carico 3D</h2>
+<div class="floatbar">
+  <button class="btn" id="addFromCatalog3D">+ Dal catalogo</button>
+  <button class="btn" id="rotate">Ruota 90°</button>
+  <button class="btn" id="levelUp">Livello ↑</button>
+  <button class="btn" id="levelDown">Livello ↓</button>
+  <button class="btn ghost" id="delete">Elimina</button>
+  <button class="btn ghost" id="clear3D">Svuota scena</button>
+</div>
+<p class="small">Tocca un box per selezionarlo. Trascina per muovere (snap a griglia), pizzica per zoom. Collisioni AABB e stacking per livelli.</p>
+<canvas id="scene"></canvas></section></main>
+<div class="overlay" id="overlay3d"><div class="sheet"><h3>Catalogo</h3><div id="catalog3D" class="list"></div>
+<div class="toolbar" style="margin-top:10px"><button class="btn" id="close3D">Chiudi</button></div></div></div>
+<script src="common.js"></script><script src="cargo3d.js"></script></body></html>
